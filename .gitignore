@@ -1,3 +1,6 @@
+*.tags
+dsaac.*
+
 # Compiled Object files
 *.slo
 *.lo
