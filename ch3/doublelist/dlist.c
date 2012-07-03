@@ -1,9 +1,11 @@
-#include "list.h"
+#include "dlist.h"
 struct NODE
 {
     int value;
+    Node* prev;
     Node* next;
 };
+
 List createList()
 {
     List head;
@@ -13,6 +15,7 @@ List createList()
         fatal("memory alloc failed!");
     }
     head->next=NULL;
+    head->prev=NULL;
     return head;
 }
 void destroyList(List list)
@@ -75,18 +78,16 @@ void delete(int value, List list)
 void delete2(Node* node)
 {
     assert(node!=NULL);
-    Node* next=node->next;
-    if(next==NULL)
+    if(node->next==NULL||node->prev==NULL)
     {
         free(node);
         node=NULL;
     }
     else
     {
-        node->next=next->next;
-        node->value=next->value;
-        free(next);
-        next=NULL;
+        node->prev->next=node->next;
+        free(node);
+        node=NULL;
     }
 }
 Node* insert(int value, Node* node, List list)
@@ -97,23 +98,27 @@ Node* insert(int value, Node* node, List list)
         fatal("memory alloc failed!");
     }
     newNode->value=value;
+    newNode->prev=node;
     newNode->next=node->next;
     node->next=newNode;
     return newNode;
 }
 void insertBefore(int value, Node* node, List list)
 {
-    fatal("not implemented!");
+    Node* newNode=(Node*)malloc(sizeof(Node));
+    if(newNode==NULL)
+    {
+        fatal("memory alloc failed!");
+    }
+    Node* prev=node->prev;
+    prev->next=newNode;
+    node->prev=newNode;
+    newNode->prev=prev;
+    newNode->next=node;
 }
 Node* findPrev(Node* node, List list)
 {
-    assert(list!=NULL);
-    Node* current=list->next;
-    while(current!=NULL && current->next!=node)
-    {
-        current=current->next;
-    }
-    return current;
+    return node->prev;
 }
 Node* findNext(Node* node, List list)
 {
@@ -121,49 +126,43 @@ Node* findNext(Node* node, List list)
 }
 List sort(List list)
 {
-    Node* tail = NULL;
-    while(tail != list->next)
-    {
-        Node* pre = list;
-        Node* cur = pre->next;
-        while(cur != tail && cur->next != tail)
-        {
-            Node *tmp=cur->next;
-            if( cur->value > tmp->value )
-            {
-                //swap current and next node
-                pre->next = tmp;
-                cur->next = tmp->next;
-                pre->next->next = cur;
-            }
-            pre = pre->next;
-            cur = pre->next;
-        }
-        tail = cur;
+    //TODO
+    Node* cur=list->next;]
+    Node* prev;
+    Node* next;
+    Node* tmp;
+    Node* tail=NULL;
+    if(cur!=NULL && cur->next!=NULL){
+        prev=cur->prev;
+        next=cur->next;
+        tmp=next->next;
     }
+    
     return list;
 }
 List reverse(List list)
 {
     assert(list!=NULL);
-    if(list->next==NULL)
-    {
-        return list;
-    }
-    Node* p;
-    Node* q;
+    Node* cur;
+    Node* next;
     Node* tmp;
-    p=list->next;
-    q=p->next;
-    p->next=NULL;
-    while(q!=NULL)
+    cur=list->next;
+    if(cur!=NULL && cur->next!=NULL)
     {
-        tmp=q->next;
-        q->next=p;
-        p=q;
-        q=tmp;
+        next=cur->next;
+        cur->next=NULL;
+        while(next!=NULL)
+        {
+            cur->prev=next;
+            tmp=next->next;
+            next->next=cur;
+            cur=next;
+            next=tmp;
+        }
+        cur->prev=list;
+        list->next=cur;
+
     }
-    list->next=p;
     return list;
 }
 void print(List list)
@@ -225,12 +224,12 @@ int main(int argc, char **argv)
         {
             fatal("memory allocate failed.");
         }
-        Node* current=insert(rand()%100, lastNode, list);
-        //Node* current=insert(i, lastNode, list);
+        //Node* current=insert(rand()%100, lastNode, list);
+        Node* current=insert(i, lastNode, list);
         lastNode=current;
     }
     print(list);
-    sort(list);
-    print(list);
+    print(reverse(list));
+    print(sort(list));
     return 0;
 }

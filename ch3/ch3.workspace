@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="ch3" Database="./ch3.tags">
-  <Project Name="list" Path="list/list.project" Active="Yes"/>
+  <Project Name="list" Path="list/list.project" Active="No"/>
+  <Project Name="doublelist" Path="doublelist/doublelist.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Project Name="list" ConfigName="Debug"/>
+      <Project Name="doublelist" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="list" ConfigName="Release"/>
+      <Project Name="doublelist" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
