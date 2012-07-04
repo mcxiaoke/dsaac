@@ -1,8 +1,8 @@
 .PHONY: clean All
 
 All:
-	@echo ----------Building project:[ doublelist - Debug ]----------
-	@cd "doublelist" && "mingw32-make.exe"  -j 2 -f "doublelist.mk"
+	@echo ----------Building project:[ stack_use_array - Debug ]----------
+	@cd "stack_use_array" && "mingw32-make.exe"  -j 2 -f "stack_use_array.mk"
 clean:
-	@echo ----------Cleaning project:[ doublelist - Debug ]----------
-	@cd "doublelist" && "mingw32-make.exe"  -j 2 -f "doublelist.mk" clean
+	@echo ----------Cleaning project:[ stack_use_array - Debug ]----------
+	@cd "stack_use_array" && "mingw32-make.exe"  -j 2 -f "stack_use_array.mk" clean

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Project Name="doublelist" InternalType="Console">
+<CodeLite_Project Name="queue_use_list" InternalType="Console">
   <Description/>
   <Dependencies/>
   <Settings Type="Executable">
@@ -86,9 +86,6 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
-    <File Name="dlist.h"/>
-    <File Name="dlist.c"/>
+    <File Name="main.c"/>
   </VirtualDirectory>
-  <Dependencies Name="Debug"/>
-  <Dependencies Name="Release"/>
 </CodeLite_Project>

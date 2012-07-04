@@ -4,21 +4,15 @@
   <wxString Value="E:\msys\home\mcxiaoke\dsaac\ch3\ch3.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="E:\msys\home\mcxiaoke\dsaac\ch3\list\list.c" Name="FileName"/>
-      <int Value="106" Name="FirstVisibleLine"/>
-      <int Value="123" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="E:\msys\home\mcxiaoke\dsaac\ch3\list\tmp.c" Name="FileName"/>
+      <wxString Value="E:\msys\home\mcxiaoke\dsaac\ch3\stack\stack.h" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <int Value="6" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="E:\msys\home\mcxiaoke\dsaac\ch3\list\list.h" Name="FileName"/>
-      <int Value="11" Name="FirstVisibleLine"/>
-      <int Value="27" Name="CurrentLine"/>
+      <wxString Value="E:\msys\home\mcxiaoke\dsaac\ch3\stack\stack.c" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="19" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
     </TabInfo>
   </TabInfoArray>
