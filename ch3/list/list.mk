@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=mcxiaoke
-Date                   :=2012/7/3
+Date                   :=2012/7/5
 CodeLitePath           :="E:\CodeLite"
 LinkerName             :=gcc
 ArchiveTool            :=ar rcus
@@ -29,7 +29,7 @@ LibraryPathSwitch      :=-L
 PreprocessorSwitch     :=-D
 SourceSwitch           :=-c 
 CompilerName           :=gcc
-C_CompilerName         :=gcc
+C_CompilerName         :=gcc -std=c99
 OutputFile             :=$(IntermediateDirectory)/$(ProjectName)
 Preprocessors          :=
 ObjectSwitch           :=-o 

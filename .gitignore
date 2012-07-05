@@ -5,6 +5,8 @@ dsaac.*
 *.slo
 *.lo
 *.o
+*.d
+*.clang
 
 # Compiled Dynamic libraries
 *.so

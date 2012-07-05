@@ -3,12 +3,12 @@
 ## any manual changes will be erased      
 ##
 ## Debug
-ProjectName            :=doublelist
+ProjectName            :=queue_use_list
 ConfigurationName      :=Debug
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 WorkspacePath          := "E:\msys\home\mcxiaoke\dsaac\ch3"
-ProjectPath            := "E:\msys\home\mcxiaoke\dsaac\ch3\doublelist"
+ProjectPath            := "E:\msys\home\mcxiaoke\dsaac\ch3\queue_use_list"
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
@@ -35,7 +35,7 @@ Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E 
-ObjectsFileList        :="E:\msys\home\mcxiaoke\dsaac\ch3\doublelist\doublelist.txt"
+ObjectsFileList        :="E:\msys\home\mcxiaoke\dsaac\ch3\queue_use_list\queue_use_list.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=makedir
 CmpOptions             := -g -O0 -Wall $(Preprocessors)
@@ -53,7 +53,7 @@ LibPath                := $(LibraryPathSwitch).
 ##
 CodeLiteDir:=E:\CodeLite
 UNIT_TEST_PP_SRC_DIR:=E:\CodeLite\UnitTest++-1.3
-Objects=$(IntermediateDirectory)/dlist$(ObjectSuffix) 
+Objects=$(IntermediateDirectory)/queue2$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -76,13 +76,13 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/dlist$(ObjectSuffix): dlist.c $(IntermediateDirectory)/dlist$(DependSuffix)
-	$(C_CompilerName) $(SourceSwitch) "E:/msys/home/mcxiaoke/dsaac/ch3/doublelist/dlist.c" $(C_CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/dlist$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/dlist$(DependSuffix): dlist.c
-	@$(C_CompilerName) $(C_CmpOptions) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/dlist$(ObjectSuffix) -MF$(IntermediateDirectory)/dlist$(DependSuffix) -MM "E:/msys/home/mcxiaoke/dsaac/ch3/doublelist/dlist.c"
+$(IntermediateDirectory)/queue2$(ObjectSuffix): queue2.c $(IntermediateDirectory)/queue2$(DependSuffix)
+	$(C_CompilerName) $(SourceSwitch) "E:/msys/home/mcxiaoke/dsaac/ch3/queue_use_list/queue2.c" $(C_CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/queue2$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/queue2$(DependSuffix): queue2.c
+	@$(C_CompilerName) $(C_CmpOptions) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/queue2$(ObjectSuffix) -MF$(IntermediateDirectory)/queue2$(DependSuffix) -MM "E:/msys/home/mcxiaoke/dsaac/ch3/queue_use_list/queue2.c"
 
-$(IntermediateDirectory)/dlist$(PreprocessSuffix): dlist.c
-	@$(C_CompilerName) $(C_CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/dlist$(PreprocessSuffix) "E:/msys/home/mcxiaoke/dsaac/ch3/doublelist/dlist.c"
+$(IntermediateDirectory)/queue2$(PreprocessSuffix): queue2.c
+	@$(C_CompilerName) $(C_CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/queue2$(PreprocessSuffix) "E:/msys/home/mcxiaoke/dsaac/ch3/queue_use_list/queue2.c"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
@@ -90,11 +90,11 @@ $(IntermediateDirectory)/dlist$(PreprocessSuffix): dlist.c
 ## Clean
 ##
 clean:
-	$(RM) $(IntermediateDirectory)/dlist$(ObjectSuffix)
-	$(RM) $(IntermediateDirectory)/dlist$(DependSuffix)
-	$(RM) $(IntermediateDirectory)/dlist$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/queue2$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/queue2$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/queue2$(PreprocessSuffix)
 	$(RM) $(OutputFile)
 	$(RM) $(OutputFile).exe
-	$(RM) "E:\msys\home\mcxiaoke\dsaac\ch3\.build-debug\doublelist"
+	$(RM) "E:\msys\home\mcxiaoke\dsaac\ch3\.build-debug\queue_use_list"
 
 

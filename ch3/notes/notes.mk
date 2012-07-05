@@ -3,12 +3,12 @@
 ## any manual changes will be erased      
 ##
 ## Debug
-ProjectName            :=doublelist
+ProjectName            :=notes
 ConfigurationName      :=Debug
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 WorkspacePath          := "E:\msys\home\mcxiaoke\dsaac\ch3"
-ProjectPath            := "E:\msys\home\mcxiaoke\dsaac\ch3\doublelist"
+ProjectPath            := "E:\msys\home\mcxiaoke\dsaac\ch3\notes"
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
@@ -35,7 +35,7 @@ Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E 
-ObjectsFileList        :="E:\msys\home\mcxiaoke\dsaac\ch3\doublelist\doublelist.txt"
+ObjectsFileList        :="E:\msys\home\mcxiaoke\dsaac\ch3\notes\notes.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=makedir
 CmpOptions             := -g -O0 -Wall $(Preprocessors)
@@ -53,7 +53,7 @@ LibPath                := $(LibraryPathSwitch).
 ##
 CodeLiteDir:=E:\CodeLite
 UNIT_TEST_PP_SRC_DIR:=E:\CodeLite\UnitTest++-1.3
-Objects=$(IntermediateDirectory)/dlist$(ObjectSuffix) 
+Objects=$(IntermediateDirectory)/note$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -76,13 +76,13 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/dlist$(ObjectSuffix): dlist.c $(IntermediateDirectory)/dlist$(DependSuffix)
-	$(C_CompilerName) $(SourceSwitch) "E:/msys/home/mcxiaoke/dsaac/ch3/doublelist/dlist.c" $(C_CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/dlist$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/dlist$(DependSuffix): dlist.c
-	@$(C_CompilerName) $(C_CmpOptions) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/dlist$(ObjectSuffix) -MF$(IntermediateDirectory)/dlist$(DependSuffix) -MM "E:/msys/home/mcxiaoke/dsaac/ch3/doublelist/dlist.c"
+$(IntermediateDirectory)/note$(ObjectSuffix): note.c $(IntermediateDirectory)/note$(DependSuffix)
+	$(C_CompilerName) $(SourceSwitch) "E:/msys/home/mcxiaoke/dsaac/ch3/notes/note.c" $(C_CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/note$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/note$(DependSuffix): note.c
+	@$(C_CompilerName) $(C_CmpOptions) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/note$(ObjectSuffix) -MF$(IntermediateDirectory)/note$(DependSuffix) -MM "E:/msys/home/mcxiaoke/dsaac/ch3/notes/note.c"
 
-$(IntermediateDirectory)/dlist$(PreprocessSuffix): dlist.c
-	@$(C_CompilerName) $(C_CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/dlist$(PreprocessSuffix) "E:/msys/home/mcxiaoke/dsaac/ch3/doublelist/dlist.c"
+$(IntermediateDirectory)/note$(PreprocessSuffix): note.c
+	@$(C_CompilerName) $(C_CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/note$(PreprocessSuffix) "E:/msys/home/mcxiaoke/dsaac/ch3/notes/note.c"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
@@ -90,11 +90,11 @@ $(IntermediateDirectory)/dlist$(PreprocessSuffix): dlist.c
 ## Clean
 ##
 clean:
-	$(RM) $(IntermediateDirectory)/dlist$(ObjectSuffix)
-	$(RM) $(IntermediateDirectory)/dlist$(DependSuffix)
-	$(RM) $(IntermediateDirectory)/dlist$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/note$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/note$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/note$(PreprocessSuffix)
 	$(RM) $(OutputFile)
 	$(RM) $(OutputFile).exe
-	$(RM) "E:\msys\home\mcxiaoke\dsaac\ch3\.build-debug\doublelist"
+	$(RM) "E:\msys\home\mcxiaoke\dsaac\ch3\.build-debug\notes"
 
 

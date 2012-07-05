@@ -5,9 +5,9 @@
   <Project Name="notes" Path="notes/notes.project"/>
   <Project Name="bucketsort" Path="bucketsort/bucketsort.project" Active="No"/>
   <Project Name="stack" Path="stack/stack.project" Active="No"/>
-  <Project Name="stack_use_array" Path="stack_use_array/stack_use_array.project" Active="Yes"/>
-  <Project Name="queue" Path="queue/queue.project"/>
-  <Project Name="queue_use_list" Path="queue_use_list/queue_use_list.project"/>
+  <Project Name="stack_use_array" Path="stack_use_array/stack_use_array.project" Active="No"/>
+  <Project Name="queue" Path="queue/queue.project" Active="No"/>
+  <Project Name="queue_use_list" Path="queue_use_list/queue_use_list.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Project Name="list" ConfigName="Debug"/>
