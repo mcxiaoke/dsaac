@@ -1,6 +1,5 @@
 #include "stack.h"
 
-
 // main 
 int main(int argc, char** argv)
 {

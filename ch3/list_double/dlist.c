@@ -127,7 +127,7 @@ Node* findNext(Node* node, List list)
 List sort(List list)
 {
     //TODO
-    Node* cur=list->next;]
+    Node* cur=list->next;
     Node* prev;
     Node* next;
     Node* tmp;
