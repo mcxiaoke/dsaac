@@ -1,1 +1,0 @@
-./Debug/stack.o ./Debug/main.o  
