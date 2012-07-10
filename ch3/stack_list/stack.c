@@ -1,15 +1,15 @@
 #include "stack.h"
 
-struct Node
+struct NODE
 {
     int value;
-    PNode next;
+    Node *next;
 };
 // create stack
 Stack create(int size)
 {
     Stack s;
-    s=(Stack)malloc(sizeof(struct Node));
+    s=(Stack)malloc(sizeof(Node));
     if(s==NULL)
     {
         fatal("stack malloc failed.");
@@ -44,7 +44,7 @@ void clear(Stack s)
 void push(int value, Stack s)
 {
     PNode newNode;
-    newNode=(PNode)malloc(sizeof(struct Node));
+    newNode=(PNode)malloc(sizeof(Node));
     if(newNode==NULL)
     {
         fatal("new node malloc failed");

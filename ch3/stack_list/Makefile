@@ -14,5 +14,3 @@ $(EXE): $(OBJECTS)
 .PHONY: clean
 clean: 
 	-$(RM) $(EXE) $(OBJECTS)
-test:
-	-$(EXE)

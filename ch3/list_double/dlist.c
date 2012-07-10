@@ -1,9 +1,9 @@
 #include "dlist.h"
-struct NODE
-{
-    int value;
-    Node* prev;
-    Node* next;
+
+struct NODE{
+	int value;
+	Node* prev;
+	Node* next;
 };
 
 List createList()

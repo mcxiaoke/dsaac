@@ -1,5 +1,4 @@
-SUBDIRS=list_double list_simple queue_array \
-	queue_list stack_array stack_list sort_bucket
+SUBDIRS=ch3 ch4
 
 #.PHONY: subdirs $(SUBDIRS)
 #subdirs: $(SUBDIRS)
@@ -14,3 +13,7 @@ clean:
 	for subdir in $(SUBDIRS);do \
 	$(MAKE) clean -C $$subdir; \
 	done
+ch3:
+	$(MAKE) -C ch3
+ch4:
+	$(MAKE) -C ch4

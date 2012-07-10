@@ -1,5 +1,4 @@
-SUBDIRS=list_double list_simple queue_array \
-	queue_list stack_array stack_list sort_bucket
+SUBDIRS=
 
 #.PHONY: subdirs $(SUBDIRS)
 #subdirs: $(SUBDIRS)

@@ -11,7 +11,6 @@ OBJECTS=queue2.o
 $(EXE): $(OBJECTS)
 	$(CC) -o $(EXE) $(OBJECTS) $(CFLAGS)
 
+.PHONY: clean
 clean: 
 	-$(RM) $(EXE) $(OBJECTS)
-test:
-	-$(EXE)

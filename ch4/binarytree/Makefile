@@ -1,12 +1,12 @@
 RM=rm
-EXE=queue.exe
+EXE=binarytree.exe
 CC=gcc
 CXX=g++
-CFLAGS=-O2 -g -std=c99
-CXXFLAGS=
-LIBS=
-LDFLAGS=-
-OBJECTS=queue.o
+CFLAGS=-O2 -g -Wall -std=c99
+#CXXFLAGS=
+#LIBS=
+#LDFLAGS=
+OBJECTS=binarytree.o
 
 $(EXE): $(OBJECTS)
 	$(CC) -o $(EXE) $(OBJECTS) $(CFLAGS)

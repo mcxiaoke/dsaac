@@ -3,25 +3,25 @@
 #define EMPTY_POSITION (-1)
 #define MIN_STACK_SIZE (5)
 
-struct StackRecord{
+struct STACK{
     int size;
     int top;
     int *data;
 };
 
 Stack create(int initSize){
-    Stack s;
+    Stack stack;
     if(initSize<MIN_STACK_SIZE){
         fatal("stack size is too small");
     }
-    s=(Stack)malloc(sizeof(struct StackRecord));
-    if(s==NULL){
+    stack=(Stack)malloc(sizeof(struct STACK));
+    if(stack==NULL){
         fatal("stack malloc failed.");
     }
-    s->data=malloc(sizeof(int)*initSize);
-    s->size=initSize;
-    clear(s);
-    return s;
+    stack->data=malloc(sizeof(int)*initSize);
+    stack->size=initSize;
+    clear(stack);
+    return stack;
 }
 
 
@@ -76,7 +76,8 @@ void print(Stack s){
     if(isEmpty(s)){
         printf("stack is empty.\n");
     }else{
-        for(int i=s->top;i>=0;i--){
+    	int i;
+        for(i=s->top;i>=0;i--){
             printf("[%d]--%d\n",i, s->data[i]);
         }
         printf("\n"); 
@@ -90,7 +91,8 @@ void fatal(char *message){
 int main(int argc, char **argv)
 {
     Stack s=create(10);
-    for(int i=0;i<10;i++){
+    int i;
+    for(i=0;i<10;i++){
         push(rand()%100,s);
     }
     printf("Stack Size: %d\n", s->size);

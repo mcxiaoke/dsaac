@@ -82,7 +82,8 @@ void print(Queue q)
     }
     else
     {
-        for(Node* cur=q->front; cur!=NULL; cur=cur->next)
+    	Node *cur;
+        for(cur=q->front; cur!=NULL; cur=cur->next)
         {
             printf("%d ",cur->value);
         }
@@ -129,24 +130,28 @@ int main(int argc, char **argv)
 {
     printf("===========================A\n");
     Queue q=create();
-    for(int i=0; i<10; i++)
+    int i;
+    for(i=0; i<10; i++)
     {
         enqueue(i, q);
         print(q);
     }
     printf("===========================B\n");
+    i=0;
     for(int i=0; i<8; i++)
     {
         dequeue(q);
         print(q);
     }
     printf("===========================C\n");
+    i=0;
     for(int i=0; i<7; i++)
     {
         enqueue(-i,q);
         print(q);
     }
     printf("===========================D\n");
+    i=0;
     for(int i=0; i<6; i++)
     {
         dequeue(q);

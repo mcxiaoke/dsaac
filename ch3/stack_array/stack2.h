@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include <assert.h>
 
-struct StackRecord;
-typedef struct StackRecord *Stack;
+struct STACK;
+typedef struct STACK *Stack;
 
 Stack create(int size);
 void destroy(Stack s);

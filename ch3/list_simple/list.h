@@ -5,6 +5,10 @@
 #include<stdlib.h>
 #include<assert.h>
 
+#ifndef NULL
+#define NULL   ((void *) 0)
+#endif
+
 typedef struct NODE Node;
 typedef Node* List;
 

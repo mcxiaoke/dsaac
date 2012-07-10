@@ -5,9 +5,10 @@
 #include <stdlib.h>
 #include <assert.h>
 
-struct Node;
-typedef struct Node *PNode;
-typedef PNode Stack;
+struct NODE;
+typedef struct NODE Node;
+typedef struct NODE *PNode;
+typedef struct NODE *Stack;
 
 Stack create(int size);
 void destroy(Stack s);

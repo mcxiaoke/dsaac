@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <assert.h>
 
+#ifndef NULL
+#define NULL   ((void *) 0)
+#endif
+
 struct QueueRecord;
 typedef struct QueueRecord *Queue;
 

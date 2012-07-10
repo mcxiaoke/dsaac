@@ -5,8 +5,9 @@
 #include<stdlib.h>
 #include<assert.h>
 
+struct NODE;
 typedef struct NODE Node;
-typedef Node* List;
+typedef struct NODE *List;
 
 // create a list
 List createList();
