@@ -1,4 +1,4 @@
-SUBDIRS=
+SUBDIRS=bst
 
 #.PHONY: subdirs $(SUBDIRS)
 #subdirs: $(SUBDIRS)
