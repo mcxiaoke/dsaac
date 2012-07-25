@@ -1,15 +1,19 @@
 #include "stack.h"
 
-struct NODE
+struct STACK_NODE
 {
     int value;
-    Node *next;
+    StackNode *next;
 };
+
+static void fatal(char *message);
+
+
 // create stack
-Stack create(int size)
+Stack createStack(int size)
 {
     Stack s;
-    s=(Stack)malloc(sizeof(Node));
+    s=(Stack)malloc(sizeof(StackNode));
     if(s==NULL)
     {
         fatal("stack malloc failed.");
@@ -19,32 +23,32 @@ Stack create(int size)
 
 }
 // destroy stack
-void destroy(Stack s)
+void destroyStack(Stack s)
 {
     assert(s!=NULL);
-    clear(s);
+    clearStack(s);
     free(s);
 }
 
 //check is empty
-int isEmpty(Stack s)
+int isEmptyStack(Stack s)
 {
     return s->next==NULL;
 }
 
 // clear stack
-void clear(Stack s)
+void clearStack(Stack s)
 {
-    while(!isEmpty(s)){
-        pop(s);
+    while(!isEmptyStack(s)){
+        popStack(s);
     }
 }
 
 // push value to stack
-void push(int value, Stack s)
+void pushStack(int value, Stack s)
 {
-    PNode newNode;
-    newNode=(PNode)malloc(sizeof(Node));
+	PStackNode newNode;
+    newNode=(PStackNode)malloc(sizeof(StackNode));
     if(newNode==NULL)
     {
         fatal("new node malloc failed");
@@ -56,18 +60,18 @@ void push(int value, Stack s)
 }
 
 // pop top node, not return
-void pop(Stack s)
+void popStack(Stack s)
 {
     assert(s!=NULL);
-    PNode node=s->next;
+    PStackNode node=s->next;
     s->next=s->next->next;
     free(node);
 }
 
 // return top value, not pop
-int top(Stack s)
+int topStack(Stack s)
 {
-    if(isEmpty(s))
+    if(isEmptyStack(s))
     {
         fatal("empty stack");
     }
@@ -75,15 +79,15 @@ int top(Stack s)
 }
 
 // print stack values
-void print(Stack s){
+void printStack(Stack s){
     assert(s!=NULL);
-    if(isEmpty(s)){
+    if(isEmptyStack(s)){
         printf("stack is empty.\n");
         return;
     }
     
     printf("stack: ");
-    PNode node=s->next;
+    PStackNode node=s->next;
     while(node!=NULL){
         printf("%d ", node->value);
         node=node->next;
@@ -93,7 +97,7 @@ void print(Stack s){
 }
 
 // fatal error message
-void fatal(char *message)
+static void fatal(char *message)
 {
     printf("Fatal error: %s",message);
     exit(0);

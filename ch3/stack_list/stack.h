@@ -5,20 +5,18 @@
 #include <stdlib.h>
 #include <assert.h>
 
-struct NODE;
-typedef struct NODE Node;
-typedef struct NODE *PNode;
-typedef struct NODE *Stack;
+struct STACK_NODE;
+typedef struct STACK_NODE StackNode;
+typedef struct STACK_NODE *PStackNode;
+typedef struct STACK_NODE *Stack;
 
-Stack create(int size);
-void destroy(Stack s);
-int isEmpty(Stack s);
-void clear(Stack s);
-void push(int value, Stack s);
-void pop(Stack s);
-int top(Stack s);
-void print(Stack s);
-void fatal(char *message);
-
+Stack createStack(int size);
+void destroyStack(Stack s);
+int isEmptyStack(Stack s);
+void clearStack(Stack s);
+void pushStack(int value, Stack s);
+void popStack(Stack s);
+int topStack(Stack s);
+void printStack(Stack s);
 
 #endif
