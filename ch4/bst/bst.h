@@ -25,6 +25,18 @@ struct TREE_NODE;
 typedef struct TREE_NODE TreeNode;
 typedef struct TREE_NODE *BST;
 
+// 二叉树节点结构体，无父节点指针
+struct TREE_NODE {
+	int value;
+	BST left;
+	BST right;
+	// 父指针仅用于查找后继
+	BST parent;
+} ;
+
+
+
+
 void bst_create(BST *tree);
 void bst_clear(BST tree);
 void bst_destroy(BST tree);
@@ -33,6 +45,8 @@ BST bst_insert(int value, BST *ptree);
 TreeNode* bst_search(int value, BST tree);
 TreeNode* bst_delete(int value, BST tree);
 int bst_retrieve(TreeNode* position);
+
+int bst_height(BST tree);
 
 void bst_preOrder(BST tree);
 void bst_inOrder(BST tree);
