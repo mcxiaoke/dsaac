@@ -17,6 +17,23 @@
  中序遍历：左子树->根节点->右子树
  后序遍历：左子树->右子树->根节点
 
+ 前序遍历:
+设置一个栈，出栈即为访问节点
+先将根节点进栈，在栈不空时一直如下循环:
+出栈，访问，将其右孩子进栈，再将左孩子进栈
+
+中序遍历:
+设置一个栈，出栈即为访问节点
+先将根节点的左节点全部进栈，然后出栈一个节点，访问
+将该节点的右孩子节点进栈，再将右孩子节点的所有左节点全部进栈，
+如此这般直到栈空为止
+
+后序遍历:
+设置一个栈。先将根节点的左节点全部进栈。
+出栈一个节点，将该节点的右孩子进栈，再将右孩子的左节点全部进栈
+当一个节点的左、右孩子都被访问过后再访问该节点，
+如此这般直到栈空为止
+
  ****************************************************************************************/
 
 #include "bst.h"
@@ -115,15 +132,21 @@ TreeNode* bst_delete(int value, BST tree) {
 }
 
 // 二叉树的高度
-int bst_height(BST tree) {
+int bst_depth(BST tree) {
 	if (tree == NULL ) {
 		return 0;
 	}
-	int height, lh, rh;
-	lh = bst_height(tree->left);
-	rh = bst_height(tree->right);
-	height = (lh > rh ? lh : rh) + 1;
-	return height;
+	int lh, rh;
+	lh = bst_depth(tree->left);
+	rh = bst_depth(tree->right);
+	return (lh > rh ? lh : rh) + 1;
+}
+
+int bst_length(BST tree){
+	if(tree==NULL){
+		return 0;
+	}
+	return 1+bst_length(tree->left)+bst_length(tree->right);
 }
 
 // 查找操作，递归版
@@ -156,7 +179,6 @@ TreeNode* bst_find(int value, BST tree) {
 // 后继定义：Node的后继是指这一节点的值在所有大于Node的节点中最小的那个节点
 // 结点x的后继是具有大于key[x]中的关键字最小者的那个结点
 TreeNode* bst_successor(BST node) {
-	// TODO
 	assert(node!=NULL);
 	if (node->right != NULL ) {
 		return bst_findMin(node);
@@ -217,12 +239,6 @@ void bst_postOrder(BST tree) {
 		bst_postOrder(tree->right);
 		show(tree);
 	}
-}
-
-// 层次遍历，递归版
-void bst_levelOrder(BST tree) {
-	// 没有递归实现
-	bst_postOrderIter(tree);
 }
 
 // 前序遍历，非递归版
@@ -354,24 +370,11 @@ int main(int argc, char **argv) {
  * http://blog.csdn.net/wangzirui0001/article/details/6854183
  * http://www.cnblogs.com/tanky_woo/archive/2011/05/03/2035160.html
 
- // 非递归遍历
- // http://www.slyar.com/blog/bitree-unrecursion-c.html
-
- // 层次遍历
- * http://blog.csdn.net/flyfeifei66/article/details/5382510
- *
  C++模板实现
  http://blog.csdn.net/kevinzhangyang/article/details/6650071
  http://blog.csdn.net/fans_men/article/details/6954253
 
- // 逆波兰表达式求解
- // http://blog.kingsamchen.com/archives/637
- *
- * 非递归遍历
- * http://www.cnblogs.com/yuchen198112/archive/2007/01/02/610065.html
- *
- * 二叉树遍历
- * http://blog.csdn.net/hackbuteer1/article/details/6583988
-
+ 二叉树各种操作
+ http://blog.csdn.net/hackbuteer1/article/details/6583988
 
  **********************************************************************************************/

@@ -46,12 +46,12 @@ TreeNode* bst_search(int value, BST tree);
 TreeNode* bst_delete(int value, BST tree);
 int bst_retrieve(TreeNode* position);
 
-int bst_height(BST tree);
+int bst_depth(BST tree);
+int bst_length(BST tree);
 
 void bst_preOrder(BST tree);
 void bst_inOrder(BST tree);
 void bst_postOrder(BST tree);
-void bst_levelOrder(BST tree);
 
 void bst_preOrderIter(BST tree);
 void bst_inOrderIter(BST tree);
