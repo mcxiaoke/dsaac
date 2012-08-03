@@ -31,8 +31,6 @@
 									<listOptionValue builtIn="false" value="&quot;E:\msys\mingw\include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;E:\msys\mingw\lib\gcc\mingw32\4.7.0\include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;E:\msys\mingw\lib\gcc\mingw32\4.7.0\include\c++&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;E:\msys\mingw\lib\gcc\mingw32\4.7.0\include-fixed&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;E:\msys\mingw\lib\gcc\mingw32\4.7.0\include\c++\backward&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;E:\msys\mingw\lib\gcc\mingw32\4.7.0\include\c++\mingw32&quot;"/>
 								</option>
 								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.397890868" languageId="org.eclipse.cdt.core.assembly" languageName="Assembly" sourceContentType="org.eclipse.cdt.core.asmSource" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
