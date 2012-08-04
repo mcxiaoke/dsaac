@@ -19,14 +19,25 @@ typedef struct AVL_NODE AvlNode;
 typedef struct AVL_NODE *Position;
 typedef struct AVL_NODE *AvlTree;
 
+// AVL树结构体定义
+struct AVL_NODE {
+	int element;
+	AvlTree left;
+	AvlTree right;
+	int height;
+};
+
 AvlTree avl_create(AvlTree* pt);
 AvlTree avl_clear(AvlTree t);
 Position avl_find(int x, AvlTree t);
 Position avl_findMin(AvlTree t);
 Position avl_findMax(AvlTree t);
-AvlTree avl_insert(int x , AvlTree t);
+Position avl_insert(int x , AvlTree t);
 AvlTree avl_delete(int x , AvlTree t);
 void avl_inOrder(AvlTree t);
+void avl_preOrder(AvlTree t);
+
+void test(void);
 
 
 #endif /* AVL_H_ */

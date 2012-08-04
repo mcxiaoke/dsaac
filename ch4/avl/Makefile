@@ -1,12 +1,11 @@
 RM=rm
 EXE=avl.exe
-CC=gcc
-CXX=g++
-CFLAGS=-O2 -g -Wall -std=c99
+CC=mingw32-gcc
+CXX=mingw32-g++
+CFLAGS=-O2 -g -std=c99 -Wall
 #CXXFLAGS=
 #LIBS=
-#LDFLAGS=
-OBJECTS=avl.o main.o
+OBJECTS=avl.o utils.o main.o
 
 $(EXE): $(OBJECTS)
 	$(CC) -o $(EXE) $(OBJECTS) $(CFLAGS)

@@ -108,7 +108,7 @@ BST bst_insert(int value, BST *ptree) {
 TreeNode* bst_delete(int value, BST tree) {
 	TreeNode *tmpNode;
 	if (tree == NULL ) {
-		fatal("node not found.\n");
+		return NULL;
 	}
 	if (value < tree->value) {
 		tree->left = bst_delete(value, tree->left);
@@ -124,7 +124,6 @@ TreeNode* bst_delete(int value, BST tree) {
 			tree = tree->right;
 		} else if (tree->right == NULL ) {
 			tree = tree->left;
-
 		}
 		free(tmpNode);
 	}
