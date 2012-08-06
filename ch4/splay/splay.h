@@ -39,15 +39,7 @@ int spt_isEmpty(const SplayTree t);
 /*  操作后:    如果该树已满,返回1; 否则返回0   */
 int spt_isFull(SplayTree t);
 
-/*  操作: 向树中添加一个结点(非递归)  */
-/*  操作前:    tree 是一棵已初始化的伸展树, item 是一个Item类型数据  */
-/*  操作后:    如果可能, 拥有 item 数据的结点被添加到树中, 返回新树的根节点; 否则返回原树 */
-SplayTree spt_insert(SplayTree t, int x);
-
-/*  操作: 向树中添加一个结点(递归)   */
-/*  操作前:    tree 是一棵已初始化的伸展树, item 是一个Item类型数据  */
-/*  操作后:    如果可能, 拥有 item 数据的结点被添加到树中, 返回新树的根节点; 否则返回原树 */
-SplayTree spt_insert2(SplayTree t, int x);
+Position spt_successor(Position p);
 
 /*  操作: 找到树中最大数据的结点 */
 /*  操作前:    tree 是一棵已初始化的伸展树    */
@@ -69,6 +61,20 @@ SplayTree spt_find(SplayTree t, int x);
 /*  操作后:    如果可能, 被找到的结点作为跟结点, 返回该结点; 否则返回原树    */
 SplayTree spt_findUseStack(SplayTree t, int x);
 
+SplayTree spt_leftRotation(Position p, SplayTree root);
+
+SplayTree spt_rightRotation(Position p, SplayTree root);
+
+/*  操作: 向树中添加一个结点(非递归)  */
+/*  操作前:    tree 是一棵已初始化的伸展树, item 是一个Item类型数据  */
+/*  操作后:    如果可能, 拥有 item 数据的结点被添加到树中, 返回新树的根节点; 否则返回原树 */
+SplayTree spt_insert(SplayTree t, int x);
+
+/*  操作: 向树中添加一个结点(递归)   */
+/*  操作前:    tree 是一棵已初始化的伸展树, item 是一个Item类型数据  */
+/*  操作后:    如果可能, 拥有 item 数据的结点被添加到树中, 返回新树的根节点; 否则返回原树 */
+SplayTree spt_insert2(SplayTree t, int x);
+
 /*  操作: 删除指定数据所在结点  */
 /*  操作前:    tree 是一棵已初始化的伸展树, item 是指定的被删除的数据   */
 /*  操作后:    如果可能, 拥有 item 数据的结点被删除, 返回新树的结点; 否则返回原树 */
@@ -78,5 +84,7 @@ SplayTree spt_delete(SplayTree t, int x);
 /*  操作前:    tree 是一棵已初始化的伸展树   */
 /*  操作后:    该函数以中序被作用于树中所有结点一次  */
 void spt_inOrder(const SplayTree t);
+
+SplayTree spt_splay(SplayTree t);
 
 #endif /* SPLAY_H_ */

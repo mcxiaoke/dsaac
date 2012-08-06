@@ -11,7 +11,6 @@
  *
  *  伸展树操作介绍
  *  http://en.wikipedia.org/wiki/Splay_tree
- *  http://blog.csdn.net/naivebaby/article/details/1357734
  *  http://blog.csdn.net/ProgrammingRing/article/details/7300135
  *
  *   伸展树实现

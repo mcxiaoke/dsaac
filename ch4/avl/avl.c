@@ -111,6 +111,7 @@ static AvlNode* makeNode(int x) {
  */
 // LL单旋转，以中间节点为中心顺时针旋转
 // 左--右 单旋， 参考图：4-32 p82
+// x围绕y顺时针旋转
 static Position singleRotateWithLeft(Position x) {
 	if (x->left == NULL ) {
 		return x;
@@ -139,6 +140,7 @@ static Position singleRotateWithLeft(Position x) {
  */
 // RR单旋转，以中间节点为中心逆时针旋转
 // 右--左 单旋， 参考图：4-32 p83
+// x围绕y逆时针旋转
 static Position singleRotateWithRight(Position x) {
 	if (x->right == NULL ) {
 		return x;
@@ -175,6 +177,8 @@ static Position singleRotateWithRight(Position x) {
  */
 // LR左右双旋
 // 先进行左旋，再进行右旋
+// 第一步：z围绕y逆时针旋转
+// 第二步：x围绕z顺时针旋转
 static Position doubleRotateWithLeft(Position x) {
 	// x->left is y
 	if (x->left == NULL || x->left->right == NULL ) {
@@ -205,6 +209,8 @@ static Position doubleRotateWithLeft(Position x) {
  */
 // RL右左旋转
 // 先进行右旋，再进行左旋
+// 第一步：z围绕y顺时针旋转
+// 第二步：x围绕z逆时针旋转
 static Position doubleRotateWithRight(Position x) {
 	// x->right is y
 	if (x->right == NULL || x->right->left == NULL ) {
