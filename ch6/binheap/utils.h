@@ -8,6 +8,12 @@
 #ifndef UTILS_H_
 #define UTILS_H_
 
+// 产生一个随机数组，范围为0～size
+void random(int data[], int size);
+
+// 产生一个随机数组，范围为offset~offset+size
+void random2(int data[], int size, int offset);
+
 // 发生错误，结束程序
 void fatal(char *message);
 
@@ -16,5 +22,8 @@ int max(int m, int n);
 
 // 显示调试信息
 void loginfo(const char* fmt, ...);
+
+// 交换两个整数
+void swap(int *px, int *py);
 
 #endif /* UTILS_H_ */
