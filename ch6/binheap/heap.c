@@ -25,6 +25,8 @@
  *
  *  http://blog.csdn.net/fairyroad/article/details/6408137
  *  http://hojor.iteye.com/blog/699121
+ *  http://www.cnblogs.com/k-eckel/articles/211907.html
+ *  http://dongxicheng.org/structure/heap/
  *
  *
  */
@@ -41,18 +43,68 @@ struct HeapStruct {
 	int *elements;
 };
 
-static void random(int data[], int n) {
-	srand((unsigned) time(NULL));
-//	srand(9);
-	for (int i = 0; i < n; i++) {
-		data[i] = i;
+//static void exchange(int i, int j, BinHeap h) {
+//	int x = h->elements[i];
+//	h->elements[i] = h->elements[j];
+//	h->elements[j] = x;
+//}
+//
+//static int leftChild(int i) {
+//	return 2 * i;
+//}
+//
+//static int rightChild(int i) {
+//	return 2 * i + 1;
+//}
+//
+//static int parent(int i) {
+//	return i / 2;
+//}
+
+//从节点i向下
+static void percolateDown(int i, BinHeap h) {
+	assert(i < h->size);
+	int x = h->elements[i]; // 当前节点的值
+	int child; // 当前节点的孩子
+	// i初始值为1， 从树根开始向下，逐层循环执行
+	for (; i * 2 < h->size; i = child) {
+		child = i * 2;
+		// find smaller child: left child, right child+1
+		if (child != h->size && h->elements[child + 1] < h->elements[child]) {
+			// 寻找较小节点，如果右孩子小于左孩子，就向右，否则向左
+			child++;
+		}
+		// 如果当前节点的孩子的值小于最末节点的值
+		if (x > h->elements[child]) {
+			h->elements[i] = h->elements[child];
+		} else {
+			break;
+		}
 	}
-	for (int i = 0; i < n; i++) {
-		int j = rand() % n;
-		int tmp = data[i];
-		data[i] = data[j];
-		data[j] = tmp;
+	h->elements[i] = x;
+}
+
+//从节点P上滤
+static void percolateUp(int i, BinHeap h) {
+	assert(i < h->size);
+	int x = h->elements[i];
+	int child;
+	for (; h->elements[i / 2] > x; i = child) {
+		child = i / 2;
+		h->elements[i] = h->elements[child];
 	}
+	h->elements[i] = x;
+}
+
+//降低关键字的值
+static void decreaseKey(int index, int value, BinHeap h) {
+	h->elements[index] -= value;
+	percolateUp(index, h);
+}
+//增加关键字的值
+static void increaseKey(int index, int value, BinHeap h) {
+	h->elements[index] += value;
+	percolateDown(index, h);
 }
 
 BinHeap initializeBinHeap(int maxElements) {
@@ -74,23 +126,30 @@ BinHeap initializeBinHeap(int maxElements) {
 
 }
 
-void buildHeap(int n, BinHeap q) {
-	assert(q != NULL);
-	int data[n];
-	random(data, n);
+void buildBinHeap(int n, BinHeap h) {
+	assert(h != NULL);
+	int data[100];
+	random(data, 100);
 	printf("INPUT  DATA: \n");
 	for (int i = 0; i < n; ++i) {
-		printf("%d ", data[i]);
+		printf("%2d ", data[i]);
 	}
 	printf("\n\n");
 
-	q->size = n;
-	for (int i = 0; i < n; ++i) {
-		q->elements[i + 1] = data[i];
+//	for (int i = 0; i < n; ++i) {
+//		insertBinHeap(data[i], h);
+//	}
+
+	h->size=n;
+	for(int i=0; i< n; ++i){
+		h->elements[i+1]=data[i];
 	}
-	for (int i = n / 2; i > 0; i--) {
-		percolateDown(i, q);
+
+	for(int i=n/2; i>0; i--){
+		percolateDown(i, h);
 	}
+
+
 }
 
 void destroyBinHeap(BinHeap q) {
@@ -101,91 +160,28 @@ void destroyBinHeap(BinHeap q) {
 
 void clearBinHeap(BinHeap q) {
 	q->size = 0;
-	q->elements[0] = QUEUE_MIN_DATA;
 }
 
-void insertBinHeap(int x, BinHeap q) {
-	if (isFullBinHeap(q)) {
+void insertBinHeap(int x, BinHeap h) {
+	if (isFullBinHeap(h)) {
 		fatal("heap is full.");
 	}
-	int i;
-	for (i = ++q->size; q->elements[i / 2] > x; i /= 2) {
-		q->elements[i] = q->elements[i / 2];
-	}
-	q->elements[i] = x;
-
+	h->elements[++h->size] = x;
+	percolateUp(h->size - 1, h);
+//	printf("insert value: %d\n", x);
+//	printBinHeap(h);
 }
-int deleteMinBinHeap(BinHeap q) {
-	if (isEmptyBinHeap(q)) {
+int deleteMinBinHeap(BinHeap h) {
+	if (isEmptyBinHeap(h)) {
 		printf("heap is empty.");
-		return q->elements[0];
+		return h->elements[0];
 	}
 
-	int minElement = q->elements[1];
-	int lastElement = q->elements[q->size--];
+	int min = h->elements[1]; // 树根，最小值
+	h->elements[1] = h->elements[h->size--];
+	percolateDown(1, h);
+	return min;
 
-	int i;
-	int child;
-	for (i = 1; i * 2 < q->size; i = child) {
-		child = i * 2;
-		// find smaller child: left child, right child+1
-		if (child != q->size && q->elements[child + 1] < q->elements[child]) {
-			child++;
-		}
-		if (lastElement > q->elements[child]) {
-			q->elements[i] = q->elements[child];
-		} else {
-			break;
-		}
-	}
-	q->elements[i] = lastElement;
-	return minElement;
-
-}
-
-//从节点p下滤
-void percolateDown(int p, BinHeap h) {
-	int i = p;
-	if (p > h->size) {
-		printf("Out of the size !! : p=%d,size=%d\n", p, h->size);
-		return;
-	}
-	int element = h->elements[p];
-	while (i * 2 <= h->size) {
-		int minChild =
-				(2 * i != h->size)
-						&& (h->elements[2 * i] > h->elements[2 * i + 1]) ?
-						2 * i + 1 : 2 * i;
-		if (element > h->elements[minChild]) {
-			h->elements[i] = h->elements[minChild];
-			i = minChild;
-		} else
-			break;
-	}
-	h->elements[i] = element;
-}
-//从节点P上滤
-void percolateUp(int p, BinHeap h) {
-	int i;
-	if (p > h->size) {
-		printf("Out of the size !!\n");
-		return;
-	}
-	int element = h->elements[p];
-	for (i = p; h->elements[i / 2] > element; i = i / 2)
-		h->elements[i] = h->elements[i / 2];
-	h->elements[i] = element;
-}
-
-//降低关键字的值
-void decreaseKey(int P, int value, BinHeap h) {
-	h->elements[P] -= value;
-	percolateUp(P, h);
-}
-//增加关键字的值
-void increaseKey(int P, int value, BinHeap h) {
-	h->elements[P] += value;
-	percolateDown(P, h);
 }
 
 //删除节点
@@ -208,25 +204,55 @@ int isFullBinHeap(BinHeap q) {
 void printBinHeap(BinHeap h) {
 	int i;
 	for (i = 1; i <= h->size; i++)
-		printf("%d ", h->elements[i]);
+		printf("%2d ", h->elements[i]);
 	putchar('\n');
 }
 
-void test() {
-	BinHeap q = initializeBinHeap(20);
-	buildHeap(10, q);
+void testBinHeap() {
+	BinHeap h = initializeBinHeap(20);
+	buildBinHeap(10, h);
 	printf("OUTPUT DATA: \n");
-	for (int i = 0; i < 11; i++) {
-		deleteMinBinHeap(q);
-		printBinHeap(q);
+	for (int i = 0; i < h->size; ++i) {
+		printf("%2d ", i);
 	}
-//
-//	int data[20];
-//	random(data, 20);
-//	for (int i = 0; i < 20; i++) {
-//		insertBinHeap(data[i], q);
-//		printBinHeap(q);
+	putchar('\n');
+	for (int i = 0; i < h->size * 3; ++i) {
+		putchar('-');
+	}
+	putchar('\n');
+	printBinHeap(h);
+	for (int i = 0; i < 6; i++) {
+		deleteMinBinHeap(h);
+		printBinHeap(h);
+	}
+
+//	int data[100];
+//	random(data, 100);
+//	for (int i = 0; i < 5; i++) {
+//		insertBinHeap(-1*data[i], h);
+//		printBinHeap(h);
 //	}
+}
+
+void findKBinHeap(){
+	int n=10000;
+	int data[n];
+	random(data,n);
+
+	BinHeap h = initializeBinHeap(n);
+	h->size=n;
+	for(int i=0; i< n; ++i){
+		h->elements[i+1]=data[i]+234;
+	}
+	for(int i=n/2; i>0; i--){
+		percolateDown(i, h);
+	}
+
+	int k=100;
+	for(int i=0; i< k; i++){
+		deleteMinBinHeap(h);
+		printf("No.%d is %d\n", i+1, h->elements[1]);
+	}
 
 }
 

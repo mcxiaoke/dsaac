@@ -21,7 +21,7 @@ struct HeapStruct;
 typedef struct HeapStruct *BinHeap;
 
 BinHeap initializeBinHeap(int maxElements);
-void buildHeap(int n, BinHeap q);
+void buildBinHeap(int n, BinHeap q);
 void destroyBinHeap(BinHeap q);
 void clearBinHeap(BinHeap q);
 void insertBinHeap(int x, BinHeap q);
@@ -30,15 +30,11 @@ int findMinBinHeap(BinHeap q);
 int isEmptyBinHeap(BinHeap q);
 int isFullBinHeap(BinHeap q);
 
-void decreaseKey(int P,int value,BinHeap h);
-void increaseKey(int P,int value,BinHeap h);
 void delete(int P,BinHeap h);
-
-void percolateDown(int p, BinHeap h);
-void percolateUp(int p, BinHeap h);
-
 void printBinHeap(BinHeap h);
 
-void test();
+void testBinHeap();
+
+void findKBinHeap();
 
 #endif /* HEAP_H_ */

@@ -1,16 +1,18 @@
 CC=mingw32-gcc
 CXX=mingw32-g++
 CFLAGS=-O2 -g -std=c99 -Wall
-SRC = $(wildcard *.c)
-OBJS=$(patsubst %.c,%.o, $(SRC))
+#SRC = $(wildcard *.c)
+#OBJS=$(patsubst %.c,%.o, $(SRC))
 
-EXE=binheap.exe
+.PHONY: clean all
 
-all: $(EXE)
+all: binheap findk
 
-$(EXE):$(OBJS)
-	$(CC) -o $(EXE) $(OBJS) $(CFLAGS)
+binheap: main.o heap.o utils.o
+	$(CC) -o binheap main.o heap.o utils.o $(CFLAGS)
+	
+findk: findk.o heap.o utils.o
+	$(CC) -o findk findk.o heap.o utils.o $(CFLAGS)
 
-.PHONY: clean
 clean: 
-	-rm $(EXE) $(OBJS)
+	-rm *.exe *.o
