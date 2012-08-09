@@ -1,0 +1,35 @@
+BubbleSort1 Num: 1000      	Count: 499500    	Time: 3ms
+BubbleSort2 Num: 1000      	Count: 497789    	Time: 3ms
+BubbleSort3 Num: 1000      	Count: 377729    	Time: 2ms
+BubbleSort4 Num: 1000      	Count: 242325    	Time: 1ms
+
+BubbleSort1 Num: 2000      	Count: 1999000   	Time: 12ms
+BubbleSort2 Num: 2000      	Count: 1996372   	Time: 13ms
+BubbleSort3 Num: 2000      	Count: 1529035   	Time: 10ms
+BubbleSort4 Num: 2000      	Count: 1017316   	Time: 5ms
+
+BubbleSort1 Num: 4000      	Count: 7998000   	Time: 47ms
+BubbleSort2 Num: 4000      	Count: 7996824   	Time: 49ms
+BubbleSort3 Num: 4000      	Count: 6148074   	Time: 39ms
+BubbleSort4 Num: 4000      	Count: 4076006   	Time: 22ms
+
+BubbleSort1 Num: 8000      	Count: 31996000  	Time: 191ms
+BubbleSort2 Num: 8000      	Count: 31995370  	Time: 197ms
+BubbleSort3 Num: 8000      	Count: 24299074  	Time: 153ms
+BubbleSort4 Num: 8000      	Count: 16298452  	Time: 88ms
+
+BubbleSort1 Num: 16000     	Count: 127992000 	Time: 773ms
+BubbleSort2 Num: 16000     	Count: 127975164 	Time: 803ms
+BubbleSort3 Num: 16000     	Count: 99328194  	Time: 628ms
+BubbleSort4 Num: 16000     	Count: 66359553  	Time: 364ms
+
+BubbleSort1 Num: 32000     	Count: 511984000 	Time: 3232ms
+BubbleSort2 Num: 32000     	Count: 511974955 	Time: 3258ms
+BubbleSort3 Num: 32000     	Count: 397895935 	Time: 2662ms
+BubbleSort4 Num: 32000     	Count: 267353161 	Time: 1496ms
+
+BubbleSort1 Num: 64000     	Count: 2047968000	Time: 12689ms
+BubbleSort2 Num: 64000     	Count: 2047967829	Time: 13110ms
+BubbleSort3 Num: 64000     	Count: 1766897805	Time: 11074ms
+BubbleSort4 Num: 64000     	Count: 1146070555	Time: 6227ms
+
