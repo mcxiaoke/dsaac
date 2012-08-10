@@ -41,6 +41,12 @@ void swap(int *px, int *py){
 	*py=tmp;
 }
 
+void swap2(int data[], int i, int j){
+	int tmp=data[i];
+	data[i]=data[j];
+	data[j]=tmp;
+}
+
 // 发生错误，结束程序
 void fatal(char *message) {
 	printf("%s\n", message);

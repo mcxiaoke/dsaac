@@ -49,10 +49,16 @@ void swap(int *px, int *py) {
 	*py = tmp;
 }
 
+void swap2(int data[], int i, int j){
+	int tmp=data[i];
+	data[i]=data[j];
+	data[j]=tmp;
+}
+
 void printArray(int *data, int n) {
 	int i;
 	for (i = 0; i < n; i++) {
-		printf("%d ", data[i]);
+		printf("%2d ", data[i]);
 	}
 	printf("\n");
 }

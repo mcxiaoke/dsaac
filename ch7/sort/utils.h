@@ -31,6 +31,9 @@ void timeinfo(char* tag, int length, unsigned long count, long time);
 // 交换两个整数
 void swap(int *px, int *py);
 
+// 交换数组的两个位置的值
+void swap2(int data[], int i, int j);
+
 void printArray(int *data, int n);
 
 #endif /* UTILS_H_ */

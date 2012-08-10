@@ -57,7 +57,7 @@ void bubbleSort(int *data, int n) {
 		for (j = 0; j < i; j++) {
 			count++;
 			if (data[j] > data[j + 1]) {
-				swap(&data[j], &data[j + 1]);
+				swap2(data, j, j + 1);
 			}
 		}
 	}
@@ -80,7 +80,7 @@ void bubbleSort2(int *data, int n) {
 		for (j = 0; j < i; j++) {
 			count++;
 			if (data[j] > data[j + 1]) {
-				swap(&data[j], &data[j + 1]);
+				swap2(data, j, j + 1);
 				exchange = 1;
 			}
 		}
@@ -101,7 +101,7 @@ void bubbleSort3(int *data, int n) {
 		for (i = bottom; i < top; i++) {
 			count++;
 			if (data[i] > data[i + 1]) {
-				swap(&data[i], &data[i + 1]);
+				swap2(data, i, i + 1);
 				exchange = 1;
 			}
 		}
@@ -110,7 +110,7 @@ void bubbleSort3(int *data, int n) {
 		for (j = top; j > bottom; j--) {
 			count++;
 			if (data[j] < data[j - 1]) {
-				swap(&data[j], &data[j - 1]);
+				swap2(data, j, j - 1);
 				exchange = 1;
 			}
 		}
@@ -128,7 +128,7 @@ void bubbleSort4(int *data, int n) {
 		if (data[i] > data[i + 1]) {
 			j = i + 1;
 			while (j > 0 && data[j] < data[j - 1]) {
-				swap(&data[j], &data[j - 1]);
+				swap2(data, j, j - 1);
 				count++;
 				j--;
 			}
@@ -164,7 +164,7 @@ static void timer() {
 }
 
 static void simpleTest() {
-	for (int j = 0; j < 40; j++) {
+	for (int j = 0; j < 10; j++) {
 		int i = 10000;
 		int size = sizeof(int) * i;
 		int *tmp = malloc(size);
