@@ -20,7 +20,7 @@ void random(int data[], int size) {
 	}
 	for (int i = size - 1; i > 0; i--) {
 		int j = rand() % (i + 1);
-		swap(&data[i], &data[j]);
+		swap2(data, i, j);
 	}
 }
 

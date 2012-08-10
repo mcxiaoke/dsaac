@@ -51,21 +51,15 @@ void shellSort2(int *data, int n) {
 
 }
 
-static void timer(){
+static void timer() {
 	int i;
-//	i=10;
-	for (i = 1000; i < 100001; i *= 2) {
+	for (i = 10000000; i < 1000000001; i *= 2) {
 		int size = sizeof(int) * i;
-		int *tmp = malloc(size);
 		int *data = malloc(size);
-		random(tmp, i);
-
-		memcpy(data, tmp, size);
+		random3(data, i,0,i);
 		shellSort(data, i);
-
 		free(data);
-		free(tmp);
-		printf("\n");
+//		printf("\n");
 	}
 }
 

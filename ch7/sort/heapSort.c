@@ -132,18 +132,12 @@ static void percolateDown(int *data, int i, int size) {
 
 static void timer() {
 	int i;
-//	i=10;
-	for (i = 1000; i < 1000001; i *= 2) {
+	for (i = 10000000; i < 1000000001; i *= 2) {
 		int size = sizeof(int) * i;
-		int *tmp = malloc(size);
 		int *data = malloc(size);
-		random(tmp, i);
-
-		memcpy(data, tmp, size);
+		random3(data, i,0,i);
 		heapSort(data, i);
-
 		free(data);
-		free(tmp);
 //		printf("\n");
 	}
 }
@@ -159,7 +153,7 @@ static void test() {
 
 int main(int argc, char **argv) {
 	setvbuf(stdout, 0, _IONBF, 0);
-//	timer();
-	test();
+	timer();
+//	test();
 	return 0;
 }
