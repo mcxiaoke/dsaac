@@ -46,7 +46,7 @@ void mergeSort(int *data, int n) {
 	}
 	msort(data, tmp, 0, n - 1);
 	free(tmp);
-	timeinfo("heapSort", n, count, clock() - start);
+	timeinfo("mergeSort", n, count, clock() - start);
 }
 
 static void msort(int *data, int *tmp, int left, int right) {
@@ -91,7 +91,7 @@ static void merge(int *data, int *tmp, int leftIndex, int rightIndex,
 
 static void timer() {
 	int i;
-	for (i = 10000000; i < 1000000001; i *= 2) {
+	for (i = 1000000; i < 1000000001; i *= 2) {
 		int size = sizeof(int) * i;
 		int *data = malloc(size);
 		random3(data, i,0,i);

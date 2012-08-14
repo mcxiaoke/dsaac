@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#undef DEBUG
+#define DEBUG
 
 void random(int data[], int size) {
 	srand((unsigned) time(NULL ));
@@ -39,8 +39,10 @@ void random3(int data[], int size, int min, int max) {
 }
 
 void timeinfo(char* tag, int length, unsigned long count, long time) {
+#ifdef DEBUG
 	printf("%s Num: %-10d\tCount: %-10u\tTime: %ldms\n", tag, length, count,
 			time);
+#endif
 }
 
 void swap(int *px, int *py) {
@@ -49,10 +51,10 @@ void swap(int *px, int *py) {
 	*py = tmp;
 }
 
-void swap2(int data[], int i, int j){
-	int tmp=data[i];
-	data[i]=data[j];
-	data[j]=tmp;
+void swap2(int data[], int i, int j) {
+	int tmp = data[i];
+	data[i] = data[j];
+	data[j] = tmp;
 }
 
 void printArray(int *data, int n) {
