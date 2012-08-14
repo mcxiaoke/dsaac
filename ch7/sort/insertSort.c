@@ -48,7 +48,7 @@ void insertSort(int *data, int n) {
 		temp = data[i];
 		//与前面已排序的数逐一比较，大于temp时，该数移后
 		// 短路求值，如果j=0循环结束，不会计算data[j-1]
-		for(j=i; j>0 && data[j-1] > temp; j--){
+		for (j = i; j > 0 && data[j - 1] > temp; j--) {
 			data[j] = data[j - 1];
 			count++;
 		}
@@ -56,6 +56,32 @@ void insertSort(int *data, int n) {
 //		printArray(data, n);
 	}
 	timeinfo("insertSort", n, count, clock() - start);
+}
+
+// 折半插入排序
+// http://www.cnblogs.com/Clingingboy/archive/2011/09/12/2174140.html
+void insertSort2(int *data, int n) {
+	for (int i = 1; i < n; i++) {
+		int temp = data[i];
+		int low = 0;
+		int high = i;
+		while (low < high) {
+			int middle = (low + high) / 2;
+			if (data[middle] < temp) {
+				low = middle + 1;
+			} else {
+				high = middle - 1;
+			}
+		}
+		for (int j = i - 1; j > high; j--) {
+			data[j + 1] = data[j];
+		}
+		data[high + 1] = temp;
+	}
+}
+
+// 二路插入排序
+void insertSort3(int *data, int n) {
 }
 
 static void timer() {

@@ -10,4 +10,8 @@
 
 void insertSort(int *data, int n);
 
+void insertSort2(int *data, int n);
+
+void insertSort3(int *data, int n);
+
 #endif /* INSERTSORT_H_ */
