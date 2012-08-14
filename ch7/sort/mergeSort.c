@@ -42,7 +42,7 @@ void mergeSort(int *data, int n) {
 	clock_t start = clock();
 	int *tmp = malloc(n * sizeof(int));
 	if (tmp == NULL ) {
-		fatal("array malloc failed.");
+		fatal("tmp array malloc failed.");
 	}
 	msort(data, tmp, 0, n - 1);
 	free(tmp);
@@ -91,9 +91,12 @@ static void merge(int *data, int *tmp, int leftIndex, int rightIndex,
 
 static void timer() {
 	int i;
-	for (i = 1000000; i < 1000000001; i *= 2) {
+	for (i = 10000000; i < 1000000001; i *= 2) {
 		int size = sizeof(int) * i;
 		int *data = malloc(size);
+		if (data == NULL ) {
+			fatal("data malloc failed.");
+		}
 		random3(data, i,0,i);
 		mergeSort(data, i);
 		free(data);

@@ -132,9 +132,12 @@ static void percolateDown(int *data, int i, int size) {
 
 static void timer() {
 	int i;
-	for (i = 1000000; i < 1000000001; i *= 2) {
+	for (i = 10000000; i < 1000000001; i *= 2) {
 		int size = sizeof(int) * i;
 		int *data = malloc(size);
+		if (data == NULL ) {
+			fatal("data malloc failed.");
+		}
 		random3(data, i,0,i);
 		heapSort(data, i);
 		free(data);

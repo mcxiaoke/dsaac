@@ -6,7 +6,6 @@
  */
 
 #include "quicksort.h"
-#include "insertSort.h"
 #include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -72,6 +71,33 @@ static void qsort4(int data[], int left, int right);
 ;
 static void qsort5(int data[], int left, int right);
 
+static void insertSort(int *data, int n) {
+	int i, j;
+	int temp;
+	for (i = 1; i < n; i++) {
+		temp = data[i];
+		for (j = i; j > 0 && data[j - 1] > temp; j--) {
+			data[j] = data[j - 1];
+		}
+		data[j] = temp;
+	}
+}
+
+static void shellSort(int *data, int n) {
+	int i, j;
+	int step;
+	int temp;
+	for (step = n / 2; step > 0; step /= 2) {
+		for (i = step; i < n; i++) {
+			temp = data[i];
+			for (j = i; j >= step && data[j - step] > temp; j -= step) {
+				data[j] = data[j - step];
+			}
+			data[j] = temp;
+		}
+	}
+}
+
 // 原始快速排序，pivot取最左边的值
 static void qsort1(int *data, int left, int right) {
 	if (left < right) {
@@ -101,10 +127,26 @@ static void qsort3(int data[], int left, int right) {
 	}
 }
 
+// 改进版快速排序，三数中值分割选取枢纽元
+// 小数组采用插入排序
 static void qsort4(int data[], int left, int right) {
+	if (left + 20 <= right) {
+		int i = partition3(data, left, right);
+		qsort3(data, left, i - 1);
+		qsort3(data, i + 1, right);
+	} else {
+		insertSort(data + left, right - left + 1);
+	}
 }
 
 static void qsort5(int data[], int left, int right) {
+	if (left + 20 <= right) {
+		int i = partition3(data, left, right);
+		qsort3(data, left, i - 1);
+		qsort3(data, i + 1, right);
+	} else {
+		shellSort(data + left, right - left + 1);
+	}
 }
 
 void quicksort1(int *data, int n) {
@@ -144,16 +186,16 @@ void quicksort5(int *data, int n) {
 
 static void timer() {
 	int i;
-	for (i = 100000; i < 40000001; i *= 2) {
+	for (i = 10000000; i < 1000000001; i *= 2) {
 		int size = sizeof(int) * i;
 		int *tmp = malloc(size);
-//		if (tmp == NULL ) {
-//			fatal("tmp malloc failed.");
-//		}
+		if (tmp == NULL ) {
+			fatal("tmp malloc failed.");
+		}
 		int *data = malloc(size);
-//		if (data == NULL ) {
-//			fatal("data malloc failed.");
-//		}
+		if (data == NULL ) {
+			fatal("data malloc failed.");
+		}
 		random(tmp, i);
 
 		memcpy(data, tmp, size);
@@ -164,6 +206,12 @@ static void timer() {
 
 		memcpy(data, tmp, size);
 		quicksort3(data, i);
+
+		memcpy(data, tmp, size);
+		quicksort4(data, i);
+
+		memcpy(data, tmp, size);
+		quicksort5(data, i);
 
 		free(data);
 		free(tmp);
