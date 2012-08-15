@@ -18,4 +18,8 @@ void quicksort4(int *data, int n);
 
 void quicksort5(int *data, int n);
 
+void quicksort6(int *data, int n);
+
+void quicksort7(int *data, int n);
+
 #endif /* QUICKSORT_H_ */
