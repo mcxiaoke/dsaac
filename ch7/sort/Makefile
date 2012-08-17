@@ -6,7 +6,7 @@ CFLAGS=-O2 -g -std=c99 -Wall
 
 .PHONY: clean all
 
-all: bubbleSort insertSort shellSort heapSort mergeSort quicksort
+all: bubbleSort insertSort shellSort heapSort mergeSort quicksort kselect
 
 bubbleSort: bubbleSort.o utils.o
 	$(CC) -o bubbleSort bubbleSort.o utils.o $(CFLAGS)
@@ -25,6 +25,9 @@ mergeSort: mergeSort.o utils.o
 
 quicksort: quicksort.o utils.o
 	$(CC) -o quicksort quicksort.o utils.o $(CFLAGS)
+	
+kselect: kselect.o utils.o
+	$(CC) -o kselect kselect.o utils.o $(CFLAGS)
 
 clean: 
 	-rm *.exe *.o

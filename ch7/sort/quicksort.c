@@ -73,6 +73,10 @@
  * pthread版
  * http://fhtr.blogspot.com/2009/01/multi-threaded-qsort-in-c.html
  *
+ * 各种排序算法C++实现
+ * http://www.oschina.net/code/snippet_41699_638
+ * http://www.oschina.net/code/snippet_1434_1721
+ *
  */
 
 static int median3(int *data, int left, int right);

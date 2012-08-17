@@ -26,10 +26,12 @@
 							<tool id="org.eclipse.cdt.build.core.settings.holder.libs.1233984442" name="holder for library settings" superClass="org.eclipse.cdt.build.core.settings.holder.libs">
 								<option id="org.eclipse.cdt.build.core.settings.holder.libpaths.525417274" name="Library Paths" superClass="org.eclipse.cdt.build.core.settings.holder.libpaths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;F:\Cygwin\lib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;E:\msys\mingw\lib&quot;"/>
 								</option>
 							</tool>
 							<tool id="org.eclipse.cdt.build.core.settings.holder.379798022" name="Assembly" superClass="org.eclipse.cdt.build.core.settings.holder">
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1376654375" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;E:\msys\mingw\include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;F:\Cygwin\usr\include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;F:\Cygwin\lib\gcc\i686-pc-mingw32\4.5.2\include&quot;"/>
 								</option>
@@ -39,6 +41,7 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.825939785" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;F:\Cygwin\usr\include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;F:\Cygwin\lib\gcc\i686-pc-mingw32\4.5.2\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;E:\msys\mingw\include&quot;"/>
 								</option>
 								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.1996970837" languageId="org.eclipse.cdt.core.g++" languageName="GNU C++" sourceContentType="org.eclipse.cdt.core.cxxSource,org.eclipse.cdt.core.cxxHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
 							</tool>
@@ -46,6 +49,7 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1144063912" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;F:\Cygwin\usr\include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;F:\Cygwin\lib\gcc\i686-pc-mingw32\4.5.2\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;E:\msys\mingw\include&quot;"/>
 								</option>
 								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.342967219" languageId="org.eclipse.cdt.core.gcc" languageName="GNU C" sourceContentType="org.eclipse.cdt.core.cSource,org.eclipse.cdt.core.cHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
 							</tool>
